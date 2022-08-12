@@ -1,0 +1,14 @@
+version: '3'
+services:
+  workspace:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+        UNAME: ${UNAME}
+        GNAME: ${GNAME}
+    working_dir: /workspace
+    command: sleep infinity
+    volumes:
+      - .:/workspace:cached

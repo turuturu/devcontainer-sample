@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.126.0/containers/python-3
+{
+  "name": "devcontainer-sample",
+  "service": "workspace",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
+  "extensions": [
+    "usernamehw.errorlens",
+    "oderwat.indent-rainbow",
+    "shardulm94.trailing-spaces",
+    "njpwerner.autodocstring",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-azuretools.vscode-docker"
+  ],
+  "postCreateCommand": ".devcontainer/postCreateCommand.sh",
+  "settings": {
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.blackPath": "/vscode/.local/bin/black",
+    "python.linting.flake8Path": "/vscode/.local/bin/flake8",
+    "python.linting.mypyPath": "/vscode/.local/bin/mypy",
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=79"
+    ],
+    "python.linting.flake8CategorySeverity.E": "Warning",
+    "python.linting.flake8CategorySeverity.F": "Warning",
+    "python.sortImports.path": "/vscode/.local/bin/isort",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "--show-column-numbers",
+        "--no-pretty",
+        "--warn-return-any",
+        "--disallow-untyped-calls",
+        "--no-implicit-optional",
+        "--ignore-missing-imports",
+        "--follow-imports=skip",
+        "--no-implicit-optional"
+    ],
+    "[python]": {
+      "editor.formatOnSave": true
+    }
+  }
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+}
