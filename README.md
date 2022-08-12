@@ -8,7 +8,7 @@ cp .env.sample .env;
 cd .devcontainer
 for f in *.sample;do
   cp ${f%.sample} $f;
-done
+done;
 cd -;
 ~~~
 ### 2. .devcontainer以下を適当に編集
